@@ -5,6 +5,14 @@ const express = require("express");
 const morgan = require("morgan");
 const port = 8888;
 
+const {
+  addTask,
+  getTasks,
+  addAppointment,
+  getAppointment,
+  addEvent,
+  deleteEvent,
+} = require("./handlers");
 express()
   // Below are methods that are included in express(). We chain them for convenience.
   // --------------------------------------------------------------------------------
@@ -16,9 +24,15 @@ express()
   // Any requests for static files will go into the public folder
   .use(express.static("public"))
 
-.get("/test", (req,res) => {
-res.status(200).json({itWorked:true})
-})
+// .get("/test", (req,res) => {
+// res.status(200).json({itWorked:true})
+// })
+.get("/api/tasks", getTasks)
+.post("/api/add-task", addTask)
+.post("/api/add-appointment", addAppointment)
+.get("/api/appointments", getAppointment)
+.post("/api/add-event", addEvent)
+.delete("/api/delete-event/:id", deleteEvent)
 
   // this is our catch all endpoint.
   .get("*", (req, res) => {
