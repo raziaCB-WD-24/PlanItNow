@@ -17,6 +17,7 @@ const CalendarPage = () => {
     const [date, setDate] = useState(new Date());
     const [events, setEvents] = useState([]);
 
+    
     const onChange = (date) => {
         setDate(date);
     };

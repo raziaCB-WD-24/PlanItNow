@@ -119,6 +119,7 @@ const addEvent = async (req, res) => {
     }
 };
 
+
 //deletes an event
 
 const deleteEvent = async (req, res) => {
